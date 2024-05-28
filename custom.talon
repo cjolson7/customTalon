@@ -4,10 +4,16 @@ mode: command
 -
 
 #General
-emote: key(win-.)
+emote (<user.text>): 
+    key(win-.)
+    "{user.text}"
 windows: key(win)
 caps lock: key(capslock)
 save file: key(ctrl-s)  
+
+#scrolling
+upper: user.mouse_scroll_up(6)
+downer: user.mouse_scroll_down(6)
 
 #Window Control
 minimize [all]: key(win-m) 
