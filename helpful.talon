@@ -20,4 +20,5 @@ mouse hop up: user.mouse_hop(0, -1*10)
 [mouse] hop down right <number>: user.mouse_hop(number, number)
 
 #function helper
-command maker <user.text>: user.click_command_writer(user.text)
+[click] command maker <user.text>: user.click_command_writer(user.text)
+move command maker <user.text>: user.move_command_writer(user.text)

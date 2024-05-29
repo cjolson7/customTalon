@@ -36,7 +36,21 @@ class Actions:
 
     def click_command_writer(name: str):
         """
-        Copies to the keyboard a short talon script to click the current mouse position
+        Copies to the keyboard a short talon script to move to and click the current mouse position
+        """
+        command_writer(name, "user.move_and_click")
+        return
+
+    def move_command_writer(name: str):
+        """
+        Copies to the keyboard a short talon script to move to the current mouse position
+        """
+        command_writer(name, "mouse_move")
+        return
+
+def command_writer(name: str, command: str):
+        """
+        Generalized helper function that given a an output name and a function to implement, copies a line of talon code to the clipboard.       
         """
         position_x = actions.mouse_x()
         position_y = actions.mouse_y()
@@ -45,7 +59,8 @@ class Actions:
         if name == "nothing": name=""
         else: name+=": "
 
-        output = name+"user.move_and_click({position_x}, {position_y})".format(position_x=position_x, position_y=position_y)
+        #exact function is based on which function invokes this general one
+        output = name+command+"({position_x}, {position_y})".format(position_x=position_x, position_y=position_y)
         pyperclip.copy(output)
         return
     

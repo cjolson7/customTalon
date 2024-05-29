@@ -4,22 +4,10 @@ settings():
     key_wait = 144
 
 # setup
-play game: 
-   mouse_move(550, 900)
-   sleep(100ms)
-   mouse_click(0)
-deck left: 
-   mouse_move(620, 380)
-   sleep(100ms)
-   mouse_click()
-deck right: 
-   mouse_move(1290, 380)
-   sleep(100ms)
-   mouse_click(0)
-confirm play: 
-   mouse_move(1000, 825)
-   sleep(100ms)
-   mouse_click(0)
+play game: user.move_and_click(550, 900)
+deck left: user.move_and_click(620, 380)
+deck right: user.move_and_click(1290, 380)
+confirm play: user.move_and_click(1000, 825)
 
 # blinds
 select small: mouse_move(630, 380)
