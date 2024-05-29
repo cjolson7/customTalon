@@ -39,10 +39,19 @@ plex button: key(f22)
 yank button: key(f23)
 left three: key(f24)
 right three: key(f13)
+   
+#hat buttons
+#hat north: key(f8)
 
 #menu hotkeys
-menu button: key(f14)
-select button: key(f15)
+menu button: key(f15)
+select button: key(f14)
+open journal: key(ctrl-j)
+open armoury: key(ctrl-i)
+open actions: key(ctrl-p)
+open currency: key(ctrl-c)
+open crafting: key(ctrl-n)
+open timers: key(ctrl-u)
 
 #camera controls
 camera return: key(end)

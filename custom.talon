@@ -10,10 +10,16 @@ emote (<user.text>):
 windows: key(win)
 caps lock: key(capslock)
 save file: key(ctrl-s)  
+hold touch: 
+    user.mouse_drag(0)
+    sleep(200ms)
+    user.mouse_drag_end()
 
 #scrolling
 upper: user.mouse_scroll_up(6)
 downer: user.mouse_scroll_down(6)
+wheel downer <number>: user.mouse_scroll_down_continuous(number)
+wheel upper <number>: user.mouse_scroll_down_continuous(-1*number)
 
 #Window Control
 minimize [all]: key(win-m) 
@@ -31,6 +37,4 @@ taskbar menu <number>: key("win-alt-{number}")
 em dash: insert("—")
 enter email: "cjocharly@att.net"
 
-#TEMP
-test: key(f15)
 

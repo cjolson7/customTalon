@@ -34,6 +34,8 @@ remove one: user.move_and_click(1565, 373)
 remove two: user.move_and_click(1558, 632)
 choose button: user.move_and_click(1239, 509)
 add key: user.move_and_click(585, 915)
+condition tab: user.move_and_click(1568, 476)
+add condition: user.move_and_click(1424, 530)
 
 #macros.
 macro action: user.move_and_click(1443, 504)
@@ -42,3 +44,4 @@ macro remove: user.move_and_click(1301, 498)
 macro virtual button: user.move_and_click(1407, 567)
 macro virtual press: user.move_and_click(1345, 597)
 macro virtual release: user.move_and_click(1345, 622)
+macro hat: user.move_and_click(1407, 597)
