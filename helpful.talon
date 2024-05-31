@@ -22,3 +22,4 @@ mouse hop up: user.mouse_hop(0, -1*10)
 #function helper
 [click] command maker <user.text>: user.click_command_writer(user.text)
 move command maker <user.text>: user.move_command_writer(user.text)
+wait command maker <user.text>: user.pause_and_click_command_writer(user.text)

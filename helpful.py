@@ -28,10 +28,17 @@ class Actions:
         actions.mouse_move(x, y)
 
     def move_and_click(x: int, y: int):
-        """Move to the indicated coordinates and click after a brief wait.
-           Simplifies talon files and makes click wait consistent."""
-        ctrl.mouse_move(x, y)
-        actions.mouse_click(0)
+        """
+        Move to the indicated coordinates and click. 
+        """
+        move_and_click_helper(x, y)
+        return
+        
+    def move_and_wait_and_click(x: int, y: int):
+        """
+        Move to the indicated coordinates, wait briefly, and click. 
+        """
+        move_and_click_helper(x, y, True)
         return
 
     def click_command_writer(name: str):
@@ -39,6 +46,13 @@ class Actions:
         Copies to the keyboard a short talon script to move to and click the current mouse position
         """
         command_writer(name, "user.move_and_click")
+        return
+
+    def pause_and_click_command_writer(name: str):
+        """
+        Copies to the keyboard a short talon script to move to current mouse position and wait briefly before clicking
+        """
+        command_writer(name, "user.move_and_wait_and_click")
         return
 
     def move_command_writer(name: str):
@@ -63,4 +77,12 @@ def command_writer(name: str, command: str):
         output = name+command+"({position_x}, {position_y})".format(position_x=position_x, position_y=position_y)
         pyperclip.copy(output)
         return
-    
+
+def move_and_click_helper(x: int, y: int, wait: bool=False):
+        """Move to the indicated coordinates and click. 
+           If wait is true, wait 100ms first.
+           Simplifies talon files and makes click wait consistent."""
+        ctrl.mouse_move(x, y)
+        if wait: actions.sleep("100ms") 
+        actions.mouse_click(0)
+        return

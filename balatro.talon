@@ -4,10 +4,12 @@ settings():
     key_wait = 144
 
 # setup
-play game: user.move_and_click(550, 900)
-deck left: user.move_and_click(620, 380)
-deck right: user.move_and_click(1290, 380)
-confirm play: user.move_and_click(1000, 825)
+play game: user.move_and_wait_and_click(550, 900)
+deck left: user.move_and_wait_and_click(620, 380)
+deck right: user.move_and_wait_and_click(1290, 380)
+confirm play: user.move_and_wait_and_click(1000, 825)
+play seeded: user.move_and_wait_and_click(715, 835)
+paste seed: user.move_and_wait_and_click(1045, 765)
 
 # blinds
 select small: mouse_move(630, 380)
@@ -17,83 +19,31 @@ skip big: mouse_move(1050, 840)
 select boss: mouse_move(1450, 380)
 
 # menus
-run info: 
-   mouse_move(220, 750)
-   sleep(100ms)
-   mouse_click(0)
-go options:
-   mouse_move(187, 912)
-   sleep(100ms)
-   mouse_click(0)
-options back:
-   mouse_move(962,762)
-   sleep(100ms)
-   mouse_click(0)
+run info: user.move_and_wait_and_click(220, 750)
+options: user.move_and_wait_and_click(187, 912)
+options back: user.move_and_wait_and_click(962, 762)
 
 # general 
 deck: mouse_move(1650, 900)
-back: 
-   mouse_move(950, 930)
-   sleep(100ms)
-   mouse_click(0)
-consume zero:
-   mouse_move(1550, 200)
-   sleep(100ms)
-   mouse_click(0)
-consume zero use: 
-   mouse_move(1640, 200)
-   sleep(100ms)
-   mouse_click()
-consume zero sell: 
-   mouse_move(1640, 100)
-   sleep(100ms)
-   mouse_click()
-consume one: 
-   mouse_move(1450, 200)
-   sleep(100ms)
-   mouse_click(0)
-consume one use: 
-   mouse_move(1540, 200)
-   sleep(100ms)
-   mouse_click()
-consume one sell: 
-   mouse_move(1540, 100)
-   sleep(100ms)
-   mouse_click()
-consume two: 
-   mouse_move(1650, 200)
-   sleep(100ms)
-   mouse_click(0)
-consume two use: 
-   mouse_move(1740, 200)
-   sleep(100ms)
-   mouse_click()
-consume two sell: 
-   mouse_move(1740, 100)
-   sleep(100ms)
-   mouse_click()
+back: user.move_and_wait_and_click(950, 915)
+
+#consumables
+consume zero: user.move_and_wait_and_click(1550, 200)
+consume zero use: user.move_and_wait_and_click(1640, 200)
+consume zero sell: user.move_and_wait_and_click(1640, 100)
+consume one: user.move_and_wait_and_click(1450, 200)
+consume one: use: user.move_and_wait_and_click(1540, 200)
+consume one: sell: user.move_and_wait_and_click(1540, 100)
+consume two: user.move_and_wait_and_click(1650, 200)
+consume two: use: user.move_and_wait_and_click(1740, 200)
+consume two: sell: user.move_and_wait_and_click(1740, 100)
 
 # hands 
-play hand: 
-   mouse_move(750, 900)
-   sleep(100ms)
-   mouse_click(0)
-discard: 
-   mouse_move(1150, 900)
-   sleep(100ms)
-   mouse_click(0)
-sort rank: 
-   mouse_move(980, 930)
-   sleep(100ms)
-   mouse_click(0)
-sort suit: 
-   mouse_move(1070, 930)
-   sleep(100ms)
-   mouse_click(0)
-cash out: 
-   mouse_move(1000, 450)
-   sleep(100ms)
-   mouse_click()
+play hand: user.move_and_wait_and_click(750, 900)
+discard: user.move_and_wait_and_click(1150, 900)
+sort rank: user.move_and_wait_and_click(980, 930)
+sort suit: user.move_and_wait_and_click(1070, 930)
+cash out: user.move_and_wait_and_click(1000, 450)
 
 # shop
 voucher: mouse_move(840, 920)
@@ -101,16 +51,17 @@ booster one: mouse_move(1200, 950)
 booster two: mouse_move(1350, 950)
 booster zero: mouse_move(1300, 950)
 next round: mouse_move(700, 450)
-reroll: 
-   mouse_move(700, 550)
-   sleep(100ms)
-   mouse_click()
+reroll: user.move_and_wait_and_click(700, 550)
 shop one: mouse_move(1060, 600)
 shop two: mouse_move(1240, 600)
 shop zero: mouse_move(1150, 600)
-by and use: user.mouse_hop(100, -150)
+buy and use: user.mouse_hop(100, -150)
 skip pack: mouse_move(1300, 930)
 purchase: 
    mouse_click(0)
    sleep(100ms)
-   mouse_click()
+   mouse_click(0)
+
+#ending screen
+copy seed: user.move_and_wait_and_click(1095, 765)
+play again: user.move_and_wait_and_click(1185, 825)
