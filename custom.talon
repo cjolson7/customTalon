@@ -8,6 +8,7 @@ emote (<user.text>):
     key(win-.)
     "{user.text}"
 windows: key(win)
+
 caps lock: key(capslock)
 save file: key(ctrl-s)  
 hold touch: 

@@ -14,6 +14,9 @@ tools: user.move_and_click(493, 169)
 input viewer: 
     user.move_and_click(493, 169)
     user.move_and_click(493, 279)
+    sleep(100ms)
+    user.move_and_click(703, 815)
+input close: user.move_and_click(1463, 395)
 
 #controller selection 
 arcade: user.move_and_click(832, 240)
@@ -45,3 +48,7 @@ macro virtual button: user.move_and_click(1407, 567)
 macro virtual press: user.move_and_click(1345, 597)
 macro virtual release: user.move_and_click(1345, 622)
 macro hat: user.move_and_click(1407, 597)
+macro pause duration: user.move_and_click(1366, 546)
+macro release: user.move_and_click(1348, 609)
+macro setting: user.move_and_click(1398, 724)
+macro delay: user.move_and_click(1448, 749)

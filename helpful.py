@@ -7,11 +7,11 @@ module = Module()
 @module.capture(rule="({user.python_functions}|<phrase>)")
 def function_writer(m) -> str:
     # get the first capture
-    text = m[0]
+    u
     # make every word lower case, and join them by "_"
     return "_".join((word.lower() for word in text.split()))
 
-#helper functions
+#various talon functions
 @module.action_class
 class Actions:
     def mouse_hop(amountX: int, amountY: int):
@@ -27,6 +27,11 @@ class Actions:
         #move mouse
         actions.mouse_move(x, y)
 
+    def variableSleep(number: int):
+        """
+        Wait an amount determined by the input number.
+        """
+        
     def move_and_click(x: int, y: int):
         """
         Move to the indicated coordinates and click. 

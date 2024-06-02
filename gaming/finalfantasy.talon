@@ -50,7 +50,7 @@ open journal: key(ctrl-j)
 open armoury: key(ctrl-i)
 open actions: key(ctrl-p)
 open currency: key(ctrl-c)
-open crafting: key(ctrl-n)
+open crafting: key(ctrlblb-n)
 open timers: key(ctrl-u)
 
 #camera controls
