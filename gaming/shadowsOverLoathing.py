@@ -6,13 +6,6 @@ context.matches = r"""
 app: Shadows Over Loathing.exe 
 """
 
-down_letters = {
-     'up': 's',
-     'left': 'd',
-     'down': 'w',
-     'right': 'a'
-}
-
 up_letters = {
      'up': 'w',
      'left': 'a',
@@ -22,14 +15,15 @@ up_letters = {
 
 @module.action_class
 class Actions:
-    def variable_walk(word: str, number: int = 1):
+    def variable_walk(words: str, number: int = 1):
         """
-        Turns a direction and a number into a walk command in that direction for that many hundreds of milliseconds 
+        Turns a direction (or several directions) and a number into a walk command in those directions for that many hundreds of milliseconds 
         """
-        down_letter=down_letters[word]
-        up_letter=up_letters[word]
+        direction_list = words.split(" ")
+        letter_list = list(map(up_letters.get, direction_list))
 
-        actions.key("{down_letter}:up".format(down_letter=down_letter))
-        actions.key("{up_letter}:down".format(up_letter=up_letter))
-        actions.sleep(str(number * 200) + "ms")
-        actions.key("{up_letter}:up".format(up_letter=up_letter))
+        for i in range(len(letter_list)):
+            letter = letter_list[i]
+            actions.key("{letter}:down".format(letter=letter))
+            actions.sleep(str(number * 200) + "ms")
+            actions.key("{letter}:up".format(letter=letter))
