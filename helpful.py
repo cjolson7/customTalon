@@ -7,7 +7,7 @@ module = Module()
 @module.capture(rule="({user.python_functions}|<phrase>)")
 def function_writer(m) -> str:
     # get the first capture
-    u
+    text = m[0]
     # make every word lower case, and join them by "_"
     return "_".join((word.lower() for word in text.split()))
 
@@ -29,7 +29,7 @@ class Actions:
 
     def variableSleep(number: int = 1):
         """
-        Wait 100ms times the input number. Default is 100ms.  
+        Wait 100ms times the input number. Default is 100ms  
         """
         actions.sleep(str(number * 100) + "ms")
         
