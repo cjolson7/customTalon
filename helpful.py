@@ -27,10 +27,11 @@ class Actions:
         #move mouse
         actions.mouse_move(x, y)
 
-    def variableSleep(number: int):
+    def variableSleep(number: int = 1):
         """
-        Wait an amount determined by the input number.
+        Wait 100ms times the input number. Default is 100ms.  
         """
+        actions.sleep(str(number * 100) + "ms")
         
     def move_and_click(x: int, y: int):
         """

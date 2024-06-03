@@ -6,57 +6,25 @@ interact: key(e)
 (action|wander): key(space)
 
 #menus 
-show character: key(c)
-show inventory: key(i)
-next category: "["
-previous category: "]"
-show map: key(m)
-show journal: key(t)
-show overlay: key(h)
-show options: key(o)
+close top right: user.move_and_click(1385, 55)
+open character: key(c)
+open inventory: key(i)
+open map: key(m)
+open journal: key(t)
+open overlay: key(h)
+open options: key(o)
 close menu: key(x)
+(prev|prove|previous) section: key(tab)
+next section: key(shift-tab)
 
 #movement
 bus stop: key(b)
-upward [<number>]: 
-   key(s:up)
-   user.variableSleep(number)
-   key(w:down)
-downward: 
-   key(w:up)
-   key(s:down)
-leftward: 
-   key(d:up)
-   key(a:down)
-rightward: 
-   key(a:up)
-   key(d:down)
-upward bump: 
-   key(s:up)
-   key(w:down)
-   sleep(100ms)
-   key(w:up)
-downward bump: 
-   key(w:up)
-   key(d:down)
-   sleep(100ms)
-   key(s:up)
-leftward bump: 
-   key(d:up)
-   key(a:down)
-   sleep(100ms)
-   key(a:up)
-rightward bump: 
-   key(a:up)
-   key(d:down)
-   sleep(100ms)
-   key(d:up)
-halt [movement]: 
-   key(w:up)
-   key(s:up)
-   key(a:up)
-   key(d:up)
+#movement command takes a direction and a time to walk in multiples of 200ms
+walk <user.arrow_keys> [<number>]: user.variable_walk(arrow_keys, number)
+walk <user.arrow_keys>: user.variable_walk(arrow_keys, 10)
+bump <user.arrow_keys>: user.variable_walk(arrow_keys, 1)
 
 #dialogue
 option up: "w"
 option down: "s"
+accept: "1"

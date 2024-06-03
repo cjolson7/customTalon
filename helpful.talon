@@ -1,4 +1,4 @@
-function writer <user.function_writer>:
+   function writer <user.function_writer>:
    "{function_writer}()"
    key(left)  
 
@@ -8,6 +8,7 @@ mouse hop left: user.mouse_hop(-1*10, 0)
 mouse hop right: user.mouse_hop(10, 0)
 mouse hop down: user.mouse_hop(0, 10)
 mouse hop up: user.mouse_hop(0, -1*10)
+
 #variable
 [mouse] hop left <number>: user.mouse_hop(-1*number, 0)
 [mouse] hop right <number>: user.mouse_hop(number, 0)
@@ -23,4 +24,3 @@ mouse hop up: user.mouse_hop(0, -1*10)
 [click] command maker <user.text>: user.click_command_writer(user.text)
 move command maker <user.text>: user.move_command_writer(user.text)
 wait command maker <user.text>: user.pause_and_click_command_writer(user.text)
-<
