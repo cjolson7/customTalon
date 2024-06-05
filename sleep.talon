@@ -1,5 +1,4 @@
 #extra system and engine specifications to assert override
-os: windows
 speech.engine: wav2letter
 mode: sleep
 not mode: sleep

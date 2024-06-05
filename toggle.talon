@@ -1,3 +1,5 @@
+os: windows
+-
 open window spy: key(f18)
 close window spy: key(f19)
 

@@ -1,4 +1,4 @@
-   function writer <user.function_writer>:
+function writer <user.function_writer>:
    "{function_writer}()"
    key(left)  
 

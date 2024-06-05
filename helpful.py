@@ -29,7 +29,7 @@ class Actions:
 
     def variableSleep(number: int = 1):
         """
-        Wait 100ms times the input number. Default is 100ms  
+        Wait 100ms times the input number. Default is 100ms.  
         """
         actions.sleep(str(number * 100) + "ms")
         
