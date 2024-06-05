@@ -44,7 +44,14 @@ class Actions:
         """
         Move to the indicated coordinates, wait briefly, and click. 
         """
-        move_and_click_helper(x, y, True)
+        move_and_click_helper(x, y, 100)
+        return
+
+    def move_and_wait_x_and_click(x: int, y: int, time: int):
+        """
+        Move to the indicated coordinates, wait a provided amount of time in ms, and click. 
+        """
+        move_and_click_helper(x, y, time)
         return
 
     def click_command_writer(name: str):
@@ -84,11 +91,11 @@ def command_writer(name: str, command: str):
         pyperclip.copy(output)
         return
 
-def move_and_click_helper(x: int, y: int, wait: bool=False):
+def move_and_click_helper(x: int, y: int, time: int=0):
         """Move to the indicated coordinates and click. 
-           If wait is true, wait 100ms first.
-           Simplifies talon files and makes click wait consistent."""
+           If a wait time is provided, wait that many milliseconds before moving.
+        """
+        if time > 0: actions.sleep(str(time) + "ms")
         ctrl.mouse_move(x, y)
-        if wait: actions.sleep("100ms") 
         actions.mouse_click(0)
         return
