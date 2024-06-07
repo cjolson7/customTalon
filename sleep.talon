@@ -38,3 +38,8 @@ not speech.engine: dragon
 discord return: 
     user.talon_mode()
     user.discord_mute()
+    
+loathing return: 
+    user.talon_mode()
+    user.discord_mute()
+    user.switcher_focus("Shadows Over Loathing.exe")

@@ -19,8 +19,8 @@ hold touch:
 #scrolling
 upper: user.mouse_scroll_up(6)
 downer: user.mouse_scroll_down(6)
-wheel downer <number>: user.mouse_scroll_down_continuous(number)
-wheel upper <number>: user.mouse_scroll_down_continuous(-1*number)
+wheel downer for <number>: user.mouse_scroll_down_continuous(number)
+wheel upper for <number>: user.mouse_scroll_down_continuous(-1*number)
 
 #Window Control
 minimize [all]: key(win-m) 
@@ -43,3 +43,6 @@ discord toggle:
     user.switcher_focus("Discord")
     user.discord_mute()
     speech.disable()
+
+#easier app closer (needs to be a little tricky to us accidentally)
+older effort forest: key(alt-f4)
