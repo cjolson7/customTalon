@@ -1,5 +1,5 @@
-
 app: MSYS2 terminal
+tag: terminal
 -
 
 user: 'cd C:\\\\Users\\\\Charly\\\\AppData\\\\Roaming\\\\talon\\\\user'

@@ -38,6 +38,9 @@ skill four: user.move_and_click(460, 835)
 skill five: user.move_and_click(565, 835)
 skill six: user.move_and_click(670, 835)
 skill seven: user.move_and_click(775, 835)
+skill eight: user.move_and_click(880, 835)
+skill nine: user.move_and_click(985, 835)
+skill ten: user.move_and_click(1090, 835)
 item one: user.move_and_click(145, 955)
 item two: user.move_and_click(250, 955)
 item three: user.move_and_click(355, 955)
@@ -45,9 +48,12 @@ item four: user.move_and_click(460, 955)
 item five: user.move_and_click(565, 955)
 item six: user.move_and_click(670, 955)
 item seven: user.move_and_click(775, 955)
-item eight: user.move_and_click(880, 955)
+item eight: user.move_and_clickv880, 955)
 item nine: user.move_and_click(985, 955)
-item ten: user.move_and_click(1090r, 955)
+item ten: user.move_and_click(1090, 955)
+item eleven: user.move_and_click(1195, 955)
+scroll items left: user.move_and_click(245, 1010)
+scroll items right: user.move_and_click(1245, 1010)
 
 #movement
 bus stop: key(b)
@@ -58,6 +64,7 @@ bus stop: key(b)
 walk <user.arrow_keys>: user.variable_walk(arrow_keys, 20)
 #chain of small movements
 bump <user.arrow_keys>: user.variable_walk(arrow_keys, 1)
+#emergency halt command in case an error leaves a thing pressed down
 halt movement: key(up-down-left-right)
 
 #dialogue

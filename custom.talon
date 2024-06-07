@@ -38,4 +38,8 @@ taskbar menu <number>: key("win-alt-{number}")
 em dash: insert("—")
 enter email: "cjocharly@att.net"
 
-
+#goes to discord ordinate mutes that regardless of current focus
+discord toggle:
+    user.switcher_focus("Discord")
+    user.discord_mute()
+    speech.disable()

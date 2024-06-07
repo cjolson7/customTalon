@@ -34,3 +34,7 @@ not speech.engine: dragon
     user.mouse_sleep()
     speech.disable()
     user.engine_sleep()
+
+discord return: 
+    user.talon_mode()
+    user.discord_mute()
