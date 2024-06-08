@@ -44,8 +44,8 @@ class Actions:
 
         #hold down pairs
         for i in range(math.floor(len(letter_list)/2)):
-            letter_1 = letter_list[2*i-1]
-            letter_2 = letter_list[2*i]
+            letter_1 = letter_list[2*i]
+            letter_2 = letter_list[2*i+1]
             key_down(letter_1)
             key_down(letter_2)
             variable_wait(number)
