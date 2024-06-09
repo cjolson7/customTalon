@@ -2,11 +2,6 @@ import math
 from talon import Module, actions, Context
 
 module = Module()
-context = Context()
-context.matches = r"""
-app: Shadows Over Loathing.exe 
-app: Hades II 
-"""
 
 up_letters = {
      'up': 'w',
@@ -26,6 +21,8 @@ class Actions:
         """
         Turns a direction (or several directions) and a number into a walk command in those directions for that many hundreds of milliseconds 
         """
+        if number > 50: number = 50 #prevent excessively long waits due to mishearing
+
         direction_list = words.split(" ")
         letter_list = list(map(up_letters.get, direction_list))
 
@@ -39,6 +36,8 @@ class Actions:
         """
         Turns the direction into a diagonal walk command using pairs of directions 
         """
+        if number > 50: number = 50 #prevent excessively long waits due to mishearing
+
         direction_list = words.split(" ")
         letter_list = list(map(up_letters.get, direction_list))
 

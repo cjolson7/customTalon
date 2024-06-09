@@ -18,6 +18,3 @@ walk <user.arrow_keys>: user.variable_walk(arrow_keys, 20)
 
 #chain of small movements
 bump <user.arrow_keys>: user.variable_walk(arrow_keys, 1)
-
-#emergency halt command in case an error leaves a thing pressed down
-halt movement: key(up:up-down:up-left:up-right:up)
