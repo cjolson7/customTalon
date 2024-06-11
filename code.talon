@@ -1,5 +1,6 @@
 app: Visual Studio Code
+app: Code
 -
 
-command sleep: "sleep(100ms)"
-control: "ctrl"
+syntax sleep: "sleep(100ms)"
+syntax control: "ctrl"
