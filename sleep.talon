@@ -43,3 +43,8 @@ loathing return:
     user.talon_mode()
     user.discord_mute()
     user.switcher_focus("Shadows Over Loathing.exe")
+    
+(final|f i) return: 
+    user.talon_mode()
+    user.discord_mute()
+    user.switcher_focus("FINAL FANTASY XIV")

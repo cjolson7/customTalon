@@ -10,11 +10,25 @@ forward:
    key(ctrl:down)
    key(w:down)
    key(ctrl:up)
+forward small: 
+   key(s:up)
+   key(ctrl:down)
+   key(w:down)
+   key(ctrl:up)
+   sleep(200ms)
+   key(w:up)
 backward: 
    key(w:up)
    key(ctrl:down)
    key(s:down)
    key(ctrl:up)
+backward small: 
+   key(w:up)
+   key(ctrl:down)
+   key(s:down)
+   key(ctrl:up)
+   sleep(200ms)
+   key(s:up)
 halt movement: 
    key(w:up)
    key(s:up)
@@ -81,4 +95,4 @@ look left small:
 look right small: 
    key(right:down)
    sleep(50ms)
-   key(right:up
+   key(right:up)

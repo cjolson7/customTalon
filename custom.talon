@@ -19,8 +19,10 @@ hold touch:
 #scrolling
 upper: user.mouse_scroll_up(6)
 downer: user.mouse_scroll_down(6)
-wheel downer for <number>: user.mouse_scroll_down_continuous(number)
-wheel upper for <number>: user.mouse_scroll_down_continuous(-1*number)
+(very|variable) scroll: user.mouse_scroll_down_continuous(40)
+(very|variable) scroll up: user.mouse_scroll_down_continuous(-40)
+(very|variable) scroll <number>: user.mouse_scroll_down_continuous(1*number)
+(very|variable) scroll up <number>: user.mouse_scroll_down_continuous(-1*number)
 
 #Window Control
 minimize [all]: key(win-m) 
@@ -38,8 +40,8 @@ taskbar menu <number>: key("win-alt-{number}")
 em dash: insert("—")
 enter email: "cjocharly@att.net"
 
-#goes to discord ordinate mutes that regardless of current focus
-discord toggle:
+#goes to discord, toggles mute, and turns off talon regardless of current focus
+discord unmute:
     user.switcher_focus("Discord")
     user.discord_mute()
     speech.disable()
