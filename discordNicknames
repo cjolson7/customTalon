@@ -1,0 +1,68 @@
+#Discord
+os: windows
+speech.engine: wav2letter
+app.exe: Discord.exe
+-
+
+#server nicknames
+(server tiny|tiny server):
+   user.discord_quick_switcher("*", "generic server name")
+   sleep(300ms)
+   key(enter)
+server (friend|friends):
+   user.discord_quick_switcher("*", "More Friends")
+   sleep(300ms)
+   key(enter)
+server phoenix:
+   user.discord_quick_switcher("*", "rose and phoenix")
+   sleep(300ms)
+   key(enter)
+server remark:
+   user.discord_quick_switcher("*", "unremarkable")
+   sleep(300ms)
+   key(enter)
+server support:
+   user.discord_quick_switcher("*", "hote support group")
+   sleep(300ms)
+   key(enter)
+server accidental:
+   user.discord_quick_switcher("*", "accidental op")
+   sleep(300ms)
+   key(enter)
+server room:
+   user.discord_quick_switcher("*", "rec room")
+   sleep(300ms)
+   key(enter)
+server (clock|clocky):
+   user.discord_quick_switcher("*", "clockie talkie")
+   sleep(300ms)
+   key(enter)
+
+#channels
+channel wiki:
+   user.discord_quick_switcher("#", "wiki-discussion")
+   sleep(300ms)
+   key(enter)
+
+#user and group chats 
+user verity:
+   user.discord_quick_switcher("@", "algebrainz")
+   sleep(300ms)
+   key(enter)
+user Gene: 
+   user.discord_quick_switcher("@", "GeneM")
+   sleep(300ms)
+   key(enter)
+user generic:
+   user.discord_quick_switcher("@", "generic")
+   sleep(300ms)
+   key(enter)
+wind spirit: 
+   user.discord_quick_switcher("", "wind spirit support")
+   sleep(300ms)
+   key(enter)
+
+#voice channels
+voice clockie: user.discord_quick_switcher("!", "general clockie")
+voice tiny: user.discord_quick_switcher("!", "general generic")
+voice support: user.discord_quick_switcher("!", "Voice Chat support")
