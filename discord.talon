@@ -9,6 +9,7 @@ react [to] <user.no_spaces>: "+:{user.no_spaces}"
 react [to] <user.custom_reactions>: "+:{user.custom_reactions}"
 
 #basic location specific click scripts
+settings screen two: user.move_and_click(-1632, 1012)
 disconnect: user.move_and_click(287, 917)
 deafen: user.move_and_click(252, 1007)
 stop streaming: user.move_and_click(287, 862)
@@ -25,7 +26,7 @@ user <user.discord_users>: user.custom_navigator("@", user.discord_users)
 voice <user.discord_voice_channels>: user.custom_navigator("!", user.discord_voice_channels)
 channel <user.discord_channels>: user.custom_navigator("#", user.discord_channels)
 <user.discord_generic_destinations>: user.custom_navigator("", user.discord_generic_destinations)
-.
+
 # tries to minimize and then return to discord to deal with loading issue
 flicker: 
   key(win-m) 

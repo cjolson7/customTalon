@@ -33,11 +33,11 @@ class Actions:
         #move mouse
         actions.mouse_move(x, y)
 
-    def variableSleep(number: int = 1):
+    def variable_wait(number: int = 100):
         """
-        Wait 100ms times the input number. Default is 100ms.  
+        Wait for a number of milliseconds determined by the input number, default 100
         """
-        actions.sleep(str(number * 100) + "ms")
+        actions.sleep(str(number) + "ms")
         
     def move_and_click(x: int, y: int):
         """
@@ -101,7 +101,7 @@ def move_and_click_helper(x: int, y: int, time: int=0):
         """Move to the indicated coordinates and click. 
            If a wait time is provided, wait that many milliseconds before moving.
         """
-        if time > 0: actions.sleep(str(time) + "ms")
+        if time > 0: actions.user.variable_wait(time)
         ctrl.mouse_move(x, y)
         actions.mouse_click(0)
         return

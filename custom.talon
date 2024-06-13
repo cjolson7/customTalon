@@ -6,6 +6,7 @@ mode: command
 #General
 emote (<user.text>): 
     key(win-.)
+    sleep(100ms)
     "{user.text}"
 windows: key(win)
 

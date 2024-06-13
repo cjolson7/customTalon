@@ -12,7 +12,7 @@ up_letters = {
 
 #helper functions
 def key_down(letter): actions.key("{letter}:down".format(letter=letter))
-def variable_wait(number): actions.sleep(str(number * 100) + "ms")
+def variable_sleep(number): actions.user.variable_wait(100*number) #multiplies the input number by a hundred for convenience of input in increments of 100 milliseconds
 def key_up(letter): actions.key("{letter}:up".format(letter=letter))
 
 @module.action_class
@@ -29,7 +29,7 @@ class Actions:
         for i in range(len(letter_list)):
             letter = letter_list[i]
             key_down(letter)
-            variable_wait(number)
+            variable_sleep(number)
             key_up(letter)
             
     def diagonal_walk(words: str, number: int = 1):
@@ -47,7 +47,7 @@ class Actions:
             letter_2 = letter_list[2*i+1]
             key_down(letter_1)
             key_down(letter_2)
-            variable_wait(number)
+            variable_sleep(number)
             key_up(letter_1)
             key_up(letter_2)
 
@@ -55,5 +55,5 @@ class Actions:
         last_one = (len(letter_list)%2) == 1
         if last_one: 
             key_down(letter_list[-1])
-            variable_wait(number)
+            variable_sleep(number)
             key_up(letter_list[-1])
