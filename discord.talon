@@ -25,7 +25,7 @@ user <user.discord_users>: user.custom_navigator("@", user.discord_users)
 voice <user.discord_voice_channels>: user.custom_navigator("!", user.discord_voice_channels)
 channel <user.discord_channels>: user.custom_navigator("#", user.discord_channels)
 <user.discord_generic_destinations>: user.custom_navigator("", user.discord_generic_destinations)
-
+.
 # tries to minimize and then return to discord to deal with loading issue
 flicker: 
   key(win-m) 

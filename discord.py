@@ -89,7 +89,8 @@ def discord_voice_channels(m) -> str:
 
 generic_list = {
    "wind spirit": "wind spirit support group",
-   "skeleton organizing": "skeleton organizing"
+   "skeleton organizing": "skeleton organizing",Custom
+   "tiny server": "generic server name"
 }
 context.lists["user.discord_generic_destinations"] = list(generic_list.keys()) 
 module.list("discord_generic_destinations", desc="Common names for discord users")
