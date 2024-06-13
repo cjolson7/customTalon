@@ -10,6 +10,12 @@ def function_writer(m) -> str:
     text = m[0]
     # make every word lower case, and join them by "_"
     return "_".join((word.lower() for word in text.split()))
+@module.capture(rule="({user.python_functions}|<phrase>)")
+def no_spaces(m) -> str:
+    # get the first capture
+    text = m[0]
+    # make every word lower case, and join them without anything in between 
+    return "".join((word.lower() for word in text.split()))
 
 #various talon functions
 @module.action_class

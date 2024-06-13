@@ -1,4 +1,4 @@
-from talon import Module, actions, Context
+from talon import Module, Context
 
 module = Module()
 context = Context()
