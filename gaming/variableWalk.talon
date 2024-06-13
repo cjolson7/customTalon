@@ -1,5 +1,6 @@
 app: Shadows Over Loathing.exe
 app: Hades II
+app: The Legend of Heroes: Trails in the Sky
 -
 settings():
     key_wait = 144
