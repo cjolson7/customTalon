@@ -50,7 +50,7 @@ class Actions:
         """
         Move to the indicated coordinates, wait briefly, and click. 
         """
-        move_and_click_helper(x, y, 100)
+        move_and_click_helper(x, y, 300)
         return
 
     def move_and_wait_x_and_click(x: int, y: int, time: int):
@@ -80,8 +80,32 @@ class Actions:
         """
         command_writer(name, "mouse_move")
         return
+        
+    def game_command_writer(name: str):
+        """
+        Copies to the keyboard a short talon script to move to the current mouse position
+        """
+        command_writer(name, "user.long_click_at_location", "0, 300")
+        
+        return
+        
+    def long_click(button: int, time: int = 300):
+        """Click, holding for a provided number of milliseconds. 
+        """
+        ctrl.mouse_click(button=button, down=True)
+        actions.user.variable_wait(time)
+        ctrl.mouse_click(button=button, up=True)
+        return
 
-def command_writer(name: str, command: str):
+    def long_click_at_location(x: int, y: int, button: int, time: int):
+        """Move to the indicated coordinates and click, holding for a provided number of milliseconds. 
+        """
+        ctrl.mouse_move(x, y)
+        actions.user.variable_wait(100)#small weight after moving to ensure click is in the right place 
+        actions.user.long_click(button, time)
+        return
+
+def command_writer(name: str, command: str, extra_arg: str = ""):
         """
         Generalized helper function that given a an output name and a function to implement, copies a line of talon code to the clipboard.       
         """
@@ -92,8 +116,10 @@ def command_writer(name: str, command: str):
         if name == "nothing": name=""
         else: name+=": "
 
+        if extra_arg != "": extra_arg = ", "+ extra_arg
+
         #exact function is based on which function invokes this general one
-        output = name+command+"({position_x}, {position_y})".format(position_x=position_x, position_y=position_y)
+        output = name+command+"({position_x}, {position_y}".format(position_x=position_x, position_y=position_y)+extra_arg+")"
         pyperclip.copy(output)
         return
 
