@@ -2,45 +2,50 @@ app: joystick_gremlin.exe
 -
 
 #activate
-activate: user.move_and_click(447, 193)
+activate: user.move_and_click(52, 63)
 
 #menus
-file: user.move_and_click(413, 165) 
+file: user.move_and_click(17, 33) 
 save:   
-    user.move_and_click(413, 165)
-    sleep(50ms)
-    user.move_and_click(436, 259)
-tools: user.move_and_click(493, 169)
+    user.move_and_click(17, 33)
+    sleep(150ms)
+    user.move_and_click(65, 118)
+tools: user.move_and_click(117, 33)
 input viewer: 
-    user.move_and_click(493, 169)
-    user.move_and_click(493, 279)
+    user.move_and_click(117, 33)
     sleep(100ms)
-    user.move_and_click(703, 815)
-input close: user.move_and_click(1463, 395)
+    user.move_and_click(141, 145)
+show virtual inputs:
+    user.move_and_click(649, 887)
+    sleep(100ms)
+    user.move_and_click(656, 862)
+show output: 
+    user.move_and_click(646, 864)
+    sleep(100ms)
+    user.move_and_click(646, 884)
 
 #controller selection 
-arcade: user.move_and_click(832, 240)
-adapt: user.move_and_click(614, 243)
-normal: user.move_and_click(1007, 240)
-keyboard: user.move_and_click(1152, 237)
+adapt: user.move_and_click(250, 100)
+flight: user.move_and_click(412, 100)
+normal: user.move_and_click(602, 100)
+
 
 #labelling
-label: user.move_and_click(554, 280)
-description: user.move_and_click(1196, 281)
+label: user.move_and_click(287, 137)
+description: user.move_and_click(1462, 137)
 
 #button commands
-choose action: user.move_and_click(861, 317)
-add action: user.move_and_click(1012, 313)
-choose type: user.move_and_click(1124, 315)
-add type: user.move_and_click(1294, 316)
-remove one: user.move_and_click(1565, 373)
-remove two: user.move_and_click(1558, 632)
-choose button: user.move_and_click(1239, 509)
-add key: user.move_and_click(585, 915)
-condition tab: user.move_and_click(1568, 476)
-add condition: user.move_and_click(1424, 530)
+choose action: user.move_and_click(1037, 172)
+add action: user.move_and_click(1187, 172)
+choose type: user.move_and_click(1370, 172)
+add type: user.move_and_click(1487, 172)
+remove one: user.move_and_click(1837, 237)
+choose button: user.move_and_click(1079, 377)
+add key: user.move_and_click(773, 984)
+tempo button: user.move_and_click(1172, 399)
+condition tab: user.move_and_click(1835, 347)
 
-#macros.
+#macros (still needs remapping to the full screen)
 macro action: user.move_and_click(1443, 504)
 macro add: user.move_and_click(1306, 467)
 macro remove: user.move_and_click(1301, 498)

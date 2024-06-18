@@ -20,12 +20,14 @@ go live: user.move_and_click(1137, 762)
 (nav|nave) up: key(alt-up)
 (nav|nave) down: key(alt-down)
 
-#channel search
+#custom search
 server <user.discord_servers>: user.custom_navigator("*", user.discord_servers)
 user <user.discord_users>: user.custom_navigator("@", user.discord_users)
 voice <user.discord_voice_channels>: user.custom_navigator("!", user.discord_voice_channels)
 channel <user.discord_channels>: user.custom_navigator("#", user.discord_channels)
 <user.discord_generic_destinations>: user.custom_navigator("", user.discord_generic_destinations)
+#hacky solution to an odd bug
+user gene: user.custom_navigator("@", "genem")
 
 # tries to minimize and then return to discord to deal with loading issue
 flicker: 

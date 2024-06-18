@@ -35,16 +35,12 @@ not speech.engine: dragon
     speech.disable()
     user.engine_sleep()
 
-discord return: 
+discord (return|mute): 
     user.talon_mode()
+    user.switcher_focus("Discord")
     user.discord_mute()
     
-loathing return: 
+<user.app_return> return: 
     user.talon_mode()
-    user.discord_mute()
-    user.switcher_focus("Shadows Over Loathing.exe")
-    
-(final|f i) return: 
-    user.talon_mode()
-    user.discord_mute()
-    user.switcher_focus("FINAL FANTASY XIV")
+    user.try_mute()
+    user.switcher_focus(user.app_return)

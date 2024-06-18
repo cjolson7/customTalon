@@ -55,9 +55,10 @@ def discord_servers(m) -> str:
     return (servers_list[str(m)])
 
 users_list = {  
-   "Gene": "GeneM" ,
    "generic": "generic",
-   "verity": "algebrainz"
+   "Gene": "genem",
+   "verity": "algebrainz",
+   "Mysana": "mysana",
 }
 context.lists["user.discord_users"] = list(users_list.keys()) 
 module.list("discord_users", desc="Common names for discord users")
@@ -78,7 +79,7 @@ def discord_channels(m) -> str:
 voice_list = {
    "clocky": "general clockie",
    "clocky talky": "general clockie",
-   "tiny": "general generic server name",
+   "tiny": "general generic",
    "support": "Voice Chat support"
 }
 context.lists["user.discord_voice_channels"] = list(voice_list.keys()) 

@@ -32,12 +32,14 @@ class Actions:
 
         #move mouse
         actions.mouse_move(x, y)
+        return
 
     def variable_wait(number: int = 100):
         """
-        Wait for a number of milliseconds determined by the input number, default 100
+        Wait for a number of milliseconds determined by the input number, default 100.
         """
         actions.sleep(str(number) + "ms")
+        return
         
     def move_and_click(x: int, y: int):
         """

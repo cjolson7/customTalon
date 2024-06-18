@@ -47,5 +47,12 @@ discord unmute:
     user.discord_mute()
     speech.disable()
 
-#easier app closer (needs to be a little tricky to us accidentally)
+#easier app closer (needs to be a little tricky to use accidentally)
 older effort forest: key(alt-f4)
+
+#more useful alt ta
+start app switcher: 
+    key(alt:down)
+    sleep(100ms)
+    key(tab)
+(end app switcher|choose app|alt up): key(alt:up)
