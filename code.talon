@@ -4,3 +4,4 @@ app: Code
 
 syntax sleep: "sleep(100ms)"
 syntax control: "ctrl"
+syntax command: "cmd"
