@@ -16,7 +16,8 @@ class Actions:
 
 reactions_list = {
     'tada': 'tada', 
-    'one hundred': 'hundred'
+    'one hundred': 'hundred',
+    'thumb':'thumbsup',
 }
 context.lists["user.custom_reactions"] = list(reactions_list.keys()) #provide key list to talon for commands
 

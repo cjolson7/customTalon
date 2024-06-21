@@ -1,6 +1,10 @@
-function writer <user.function_writer>:
-   "{function_writer}()"
-   key(left)  
+#this is a place to put personal unique commands that should be available in all modes, even gaming-specific ones, and all operating systems
+
+speech.engine: wav2letter
+-
+
+#pure wait command for command cadence management
+pause [<number>]: user.limited_wait(number or 1)
 
 #mouse hop commands for mouse movement by pixel.   
 #defaults
@@ -25,3 +29,14 @@ mouse hop up: user.mouse_hop(0, -1*10)
 move command maker <user.text>: user.move_command_writer(user.text)
 wait command maker <user.text>: user.pause_and_click_command_writer(user.text)
 game command maker <user.text>: user.game_command_writer(user.text) 
+
+#long click for when click is being fucky
+long touch: user.long_click(0, 300) 
+
+#scrolling
+upper: user.mouse_scroll_up(6)
+downer: user.mouse_scroll_down(6)
+(very|variable) scroll: user.mouse_scroll_down_continuous(40)
+(very|variable) scroll up: user.mouse_scroll_down_continuous(-40)
+(very|variable) scroll <number>: user.mouse_scroll_down_continuous(1*number)
+(very|variable) scroll up <number>: user.mouse_scroll_down_continuous(-1*number)

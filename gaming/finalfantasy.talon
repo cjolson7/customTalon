@@ -4,6 +4,9 @@ app: FINAL FANTASY XIV
 settings():
     key_wait = 144
 
+#click command 
+touch: user.long_click(0, 300) 
+
 #movement
 forward: 
    key(s:up)

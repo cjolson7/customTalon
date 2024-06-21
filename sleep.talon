@@ -39,7 +39,8 @@ discord (return|mute):
     user.talon_mode()
     user.switcher_focus("Discord")
     user.discord_mute()
-    
+
+#turn on talon, attempt to mute discord, and go back to the app in question
 <user.app_return> return: 
     user.talon_mode()
     user.try_mute()

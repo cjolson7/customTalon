@@ -41,6 +41,15 @@ class Actions:
         actions.sleep(str(number) + "ms")
         return
         
+    def limited_wait(number: float):
+        """
+        Takes integer input and waits 400ms * input, maximum 5000.
+        """
+        number *= 400
+        if number > 5000: number = 5000
+        actions.user.variable_wait(number)
+        return
+        
     def move_and_click(x: int, y: int):
         """
         Move to the indicated coordinates and click. 

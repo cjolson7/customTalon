@@ -1,3 +1,4 @@
+#this is a default place to put custom overrides and convenient commands for my windows machine
 os: windows
 speech.engine: wav2letter
 mode: command
@@ -11,19 +12,7 @@ emote (<user.text>):
 windows: key(win)
 
 caps lock: key(capslock)
-save file: key(ctrl-s)  
-hold touch: 
-    user.mouse_drag(0)
-    sleep(200ms)
-    user.mouse_drag_end()
-
-#scrolling
-upper: user.mouse_scroll_up(6)
-downer: user.mouse_scroll_down(6)
-(very|variable) scroll: user.mouse_scroll_down_continuous(40)
-(very|variable) scroll up: user.mouse_scroll_down_continuous(-40)
-(very|variable) scroll <number>: user.mouse_scroll_down_continuous(1*number)
-(very|variable) scroll up <number>: user.mouse_scroll_down_continuous(-1*number)
+save file: key(ctrl-s)
 
 #Window Control
 minimize [all]: key(win-m) 
@@ -41,18 +30,23 @@ taskbar menu <number>: key("win-alt-{number}")
 em dash: insert("—")
 enter email: "cjocharly@att.net"
 
+#easier app closer (needs to be a little tricky to use accidentally)
+older effort forest: key(alt-f4)
+
+#app-specific "go back to this and do something to talon" commands (for command mode, not while talon is asleep)
 #goes to discord, toggles mute, and turns off talon regardless of current focus
 discord unmute:
     user.switcher_focus("Discord")
     user.discord_mute()
     speech.disable()
 
-#easier app closer (needs to be a little tricky to use accidentally)
-older effort forest: key(alt-f4)
+#focuses and unmutes discord and goes back to final fantasy - this is a different switch than normal, going from 'muted and editing' to 'play and chat'
+(f i|final) return: 
+    user.switcher_focus("Discord")
+    user.discord_mute()
+    user.switcher_focus("FINAL FANTASY XIV")
+    speech.disable()
 
-#more useful alt ta
-start app switcher: 
-    key(alt:down)
-    sleep(100ms)
-    key(tab)
-(end app switcher|choose app|alt up): key(alt:up)
+#focus trails in the sky and then enter its custom mode (should fail when trails isn't open)
+focus (trail|trails):
+    user.switcher_focus("The Legend of Heroes: Trails in the Sky")

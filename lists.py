@@ -3,9 +3,8 @@ from talon import Module, Context, actions
 module = Module()
 context = Context()
 
+#games I want togo back to and turn Talon on
 apps_to_return_to = {
-   "final": "FINAL FANTASY XIV",
-   "f i": "FINAL FANTASY XIV",
    "loathing": "Shadows Over Loathing.exe",
    "firefox": "Firefox",
    "gremlin": "joystick_gremlin.exe",
