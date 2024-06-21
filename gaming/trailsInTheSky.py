@@ -1,5 +1,7 @@
-from talon import Module, actions, ctrl
+from talon import Module, actions
+
 module = Module()
+module.mode("trails_mode", desc="custom limited multitasking mode to minimize mishearings")
 
 up_letters = {
      'up': 'w',
@@ -12,15 +14,8 @@ up_letters = {
 class Actions:
     def keep_going(number: int):
         """hit space X times"""
+        #very important limiter
+        if number > 30: number = 30
         for i in range(number):
             actions.key("space")
-            actions.user.variable_wait(100)
-
-    def arrow_fix(keys: str):
-        """single key taps for menu navigation"""
-        
-        direction_list = words.split(" ")
-        letter_list = list(map(up_letters.get, direction_list))
-        
-        for key in keys: 
-            actions.key(up_letters[key])
+            actions.user.variable_wait(300)
