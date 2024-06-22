@@ -15,3 +15,7 @@ talon talon: key(backspace left backspace o)
 (pace | paste) that: 
    edit.paste()
    sleep(100ms)
+
+#common entries and mild pw obfuscation
+enter email: "cjocharly@att.net"
+bitwarden code: "2773"

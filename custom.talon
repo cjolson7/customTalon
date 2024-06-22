@@ -26,10 +26,6 @@ max screen left: key(win-left)
 taskbar open <number>: key("win-{number}")
 taskbar menu <number>: key("win-alt-{number}")
 
-#Custom Words
-em dash: insert("—")
-enter email: "cjocharly@att.net"
-
 #easier app closer (needs to be a little tricky to use accidentally)
 older effort forest: key(alt-f4)
 
@@ -47,6 +43,12 @@ discord unmute:
     user.switcher_focus("FINAL FANTASY XIV")
     speech.disable()
 
-#focus trails in the sky and then enter its custom mode (should fail when trails isn't open)
+#focus trails in the sky and then enter its custom mode (should fail at first step when trails isn't open)
 focus (trail|trails):
     user.switcher_focus("The Legend of Heroes: Trails in the Sky")
+    mode.enable("user.trails_mode")
+    mode.disable("command")
+#just turn on trails' command mode
+trails control mode: 
+    mode.enable("user.trails_mode")
+    mode.disable("command")
