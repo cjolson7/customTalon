@@ -44,11 +44,9 @@ discord unmute:
     speech.disable()
 
 #focus trails in the sky and then enter its custom mode (should fail at first step when trails isn't open)
-focus (trail|trails):
+#also deactivates the mouse grade so that the grid can be more easily used during trails
+focus trails:
     user.switcher_focus("The Legend of Heroes: Trails in the Sky")
     mode.enable("user.trails_mode")
     mode.disable("command")
-#just turn on trails' command mode
-trails control mode: 
-    mode.enable("user.trails_mode")
-    mode.disable("command")
+    user.flex_grid_deactivate()

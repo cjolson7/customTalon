@@ -1,5 +1,6 @@
 #this is a place to put personal unique commands that should be available in all modes, even gaming-specific ones, and all operating systems
-
+mode: command
+mode: user.trails_mode
 speech.engine: wav2letter
 -
 
