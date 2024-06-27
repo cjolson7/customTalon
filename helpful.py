@@ -34,6 +34,17 @@ class Actions:
         actions.mouse_move(x, y)
         return
 
+    def key_repeat(key: str, number: int):
+        """
+        Takes a key and a number of times to press it and does so.
+        Takes only the first key if given a list.
+        Capped at thirty to avoid particularly long repeats.
+        """
+        key = key.split(" ")[0]
+        number = actions.user.number_cap(number, 30)
+        
+        actions.key(key+":"+str(number))
+
     def variable_wait(number: int = 100):
         """
         Wait for a number of milliseconds determined by the input number, default 100.
@@ -45,8 +56,7 @@ class Actions:
         """
         Takes integer input and waits 400ms * input, maximum 5000.
         """
-        number *= 400
-        if number > 5000: number = 5000
+        number = actions.user.number_cap(number*400, 5000)
         actions.user.variable_wait(number)
         return
         
@@ -126,28 +136,36 @@ class Actions:
         return
 
     def command_writer(name: str, command: str, extra_arg: str = ""):
-            """
-            Generalized helper function that given a an output name and a function to implement, copies a line of talon code to the clipboard.       
-            """
-            position_x = actions.mouse_x()
-            position_y = actions.mouse_y()
-            
-            #allows nameless command for complex command writing given input "nothing"
-            if name == "nothing": name=""
-            else: name+=": "
+        """
+        Generalized helper function that given a an output name and a function to implement, copies a line of talon code to the clipboard.       
+        """
+        position_x = actions.mouse_x()
+        position_y = actions.mouse_y()
+        
+        #allows nameless command for complex command writing given input "nothing"
+        if name == "nothing": name=""
+        else: name+=": "
 
-            if extra_arg != "": extra_arg = ", "+ extra_arg
+        if extra_arg != "": extra_arg = ", "+ extra_arg
 
-            #exact function is based on which function invokes this general one
-            output = name+command+"({position_x}, {position_y}".format(position_x=position_x, position_y=position_y)+extra_arg+")"
-            pyperclip.copy(output)
-            return
+        #exact function is based on which function invokes this general one
+        output = name+command+"({position_x}, {position_y}".format(position_x=position_x, position_y=position_y)+extra_arg+")"
+        pyperclip.copy(output)
+        return
+    
+    def number_cap(input: int, cap: int):
+        """
+        Takes an input and limits the input to the If it is larger  
+        """
+        if input > cap: input = cap
+        return input
 
 def move_and_click_helper(x: int, y: int, time: int=0):
-        """Move to the indicated coordinates and click. 
-           If a wait time is provided, wait that many milliseconds before moving.
-        """
-        if time > 0: actions.user.variable_wait(time)
-        ctrl.mouse_move(x, y)
-        actions.mouse_click(0)
-        return
+    """
+    Move to the indicated coordinates and click. 
+    If a wait time is provided, wait that many milliseconds before moving.
+    """
+    if time > 0: actions.user.variable_wait(time)
+    ctrl.mouse_move(x, y)
+    actions.mouse_click(0)
+    return

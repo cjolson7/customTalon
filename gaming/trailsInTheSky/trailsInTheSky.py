@@ -27,7 +27,7 @@ class Actions:
         """give it a character name, parse their coordinates from the dictionary and click on them in the menu"""
         coordinates = trails_character_list[name]["menu_location"]
         actions.user.long_click_at_location(coordinates[0], coordinates[1])
-
+        
     def winding_path_home():
         """walk home on the winding path"""
         actions.key("tab:down")

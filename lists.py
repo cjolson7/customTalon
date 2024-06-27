@@ -3,7 +3,7 @@ from talon import Module, Context, actions
 module = Module()
 context = Context()
 
-#games I want togo back to and turn Talon on
+#apps I want to go back to and then turn Talon on
 apps_to_return_to = {
    "loathing": "Shadows Over Loathing.exe",
    "firefox": "Firefox",
@@ -15,6 +15,22 @@ module.list("app_return", desc="List of apps to recognize in a 'return and turn 
 @module.capture(rule=("{user.app_return}"))
 def app_return(m) -> str:
     return (apps_to_return_to[str(m)])
+
+syntax_list = {
+    "sleep": "sleep(100ms)",
+    "control": "ctrl",
+    "command": "cmd",
+    "death": "def",
+    "def": "def",
+    "integer": "int",
+    "string": "str",
+}
+context.lists["user.coding_syntax"] = list(syntax_list.keys()) 
+module.list("coding_syntax", desc="List of coding syntax to be recognized while writing code")
+@module.capture(rule=("{user.coding_syntax}"))
+def coding_syntax(m) -> str:
+    return (syntax_list[str(m)])
+
 
 @module.action_class
 class Actions:

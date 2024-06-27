@@ -7,13 +7,8 @@ settings():
 
 #basic control
 (interact|confirm|enter): key(space)
-act <user.arrow_keys>:
-    user.variable_walk(arrow_keys, 0)
-    key(space)
-(act|action) <user.arrow_keys> <number>:
-    user.variable_walk(arrow_keys, 0)
-    core.repeat_command(number-1)  
-    user.variable_walk(arrow_keys, 0)
+act <user.arrow_keys> [<number>]:
+    user.key_repeat(user.arrow_wasd_translate(user.arrow_keys), number or 1)
     key(space)
 (menu): key(escape)
 (cancel|escape): key(ctrl)
@@ -78,34 +73,3 @@ choose run: mouse_move(1672, 620)
 [es] break three: "3"
 [es] break (for|four): "4"
 end combat: user.keep_going(5)
-
-#rewrites of basic commands
-touch: user.long_click(0, 300)
-#this works now because it is its own mode
-go <user.arrow_keys>+: user.variable_walk(arrow_keys, 0) 
-
-#flex grid turns command mode back on for easy control
-flex grid:
-    user.flex_grid_activate()
-    mode.disable("user.trails_mode")
-    mode.enable("command")
-
-#repeaters copied here for use in this mode
-# -1 because we are repeating, so the initial command counts as one
-<user.ordinals_small>: core.repeat_command(ordinals_small - 1)
-<number_small> times: core.repeat_command(number_small - 1)
-(repeat that | twice): core.repeat_command(1)
-repeat that <number_small> [times]: core.repeat_command(number_small)
-(repeat phrase | again) [<number_small> times]: core.repeat_partial_phrase(number_small or 1) 
-
-#eye tracker movements copied here for easy use
-(eye | i) (hover | [cursor] move): user.move_cursor_to_gaze_point()
-(eye | i) [left] (touch | click):
-    user.move_cursor_to_gaze_point()
-    sleep(100ms)
-    user.long_click(0, 300)
-(hover (seen | scene) | cursor move) <user.timestamped_prose>$: user.move_cursor_to_word(timestamped_prose)
-[left] (touch | click) <user.timestamped_prose>$:
-    user.move_cursor_to_word(timestamped_prose)
-    sleep(100ms)
-    user.long_click(0, 300)

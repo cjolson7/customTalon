@@ -27,3 +27,8 @@ taskbar menu <number>: key("win-alt-{number}")
 
 #easier app closer (needs to be a little tricky to use accidentally)
 older effort forest: key(alt-f4)
+.
+#go up or down X times and then act with enter
+act <user.arrow_keys> [<number>]:
+    user.key_repeat(user.arrow_keys, number or 1)
+    key(enter)

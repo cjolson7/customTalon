@@ -20,7 +20,8 @@ class Actions:
         """
         Turns a direction (or several directions) and a number into a walk command in those directions for that many hundreds of milliseconds 
         """
-        if number > 50: number = 50 #prevent excessively long waits due to mishearing
+        #prevent excessively long movements due to mishearing
+        number = actions.user.number_cap(number, 50)
 
         direction_list = words.split(" ")
         letter_list = list(map(up_letters.get, direction_list))
@@ -35,7 +36,8 @@ class Actions:
         """
         Turns the direction into a diagonal walk command using pairs of directions 
         """
-        if number > 50: number = 50 #prevent excessively long waits due to mishearing
+        #prevent excessively long movements due to mishearing
+        number = actions.user.number_cap(number, 50)
 
         direction_list = words.split(" ")
         letter_list = list(map(up_letters.get, direction_list))
@@ -56,3 +58,12 @@ class Actions:
             key_down(letter_list[-1])
             actions.user.variable_wait(number*100)#convert to milliseconds
             key_up(letter_list[-1])
+
+    def arrow_wasd_translate(words: str):
+        """
+        Converts an string of arrow keys into a string of wasd letters for use in other commands.
+        """
+        direction_list = words.split(" ")
+        letter_list = list(map(up_letters.get, direction_list))
+        letter_string = " ".join(letter_list)
+        return letter_string
