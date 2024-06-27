@@ -97,7 +97,7 @@ class Actions:
         """
         Copies to the keyboard a short talon script to move to the current mouse position
         """
-        actions.user.command_writer(name, "user.long_click_at_location", "0, 300")
+        actions.user.command_writer(name, "user.long_click_at_location")
         
         return
         
@@ -109,7 +109,15 @@ class Actions:
         ctrl.mouse_click(button=button, up=True)
         return
 
-    def long_click_at_location(x: int, y: int, button: int, time: int):
+    def long_click_at_location(x: int, y: int):
+        """Move to the indicated coordinates and click, holding for a provided number of milliseconds. 
+        """
+        ctrl.mouse_move(x, y)
+        actions.user.variable_wait(100)#small wait after moving to ensure click is in the right place 
+        actions.user.long_click(0)
+        return
+        
+    def long_click_at_location_manual(x: int, y: int, button: int, time: int):
         """Move to the indicated coordinates and click, holding for a provided number of milliseconds. 
         """
         ctrl.mouse_move(x, y)

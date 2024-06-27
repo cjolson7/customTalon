@@ -34,8 +34,6 @@ game command maker <user.text>: user.game_command_writer(user.text)
 long touch: user.long_click(0, 300) 
 
 #scrolling
-upper: user.mouse_scroll_up(6)
-downer: user.mouse_scroll_down(6)
 (very|variable) scroll: user.mouse_scroll_down_continuous(40)
 (very|variable) scroll up: user.mouse_scroll_down_continuous(-40)
 (very|variable) scroll <number>: user.mouse_scroll_down_continuous(1*number)

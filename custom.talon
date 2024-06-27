@@ -10,7 +10,6 @@ emote (<user.text>):
     sleep(100ms)
     "{user.text}"
 windows: key(win)
-
 caps lock: key(capslock)
 save file: key(ctrl-s)
 

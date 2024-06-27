@@ -1,4 +1,4 @@
-#these commands should be available in any os, but only in command mode, because they are for text editors
+#these commands should be available in any os, but only in command mode, because they are primarily for text editors
 
 speech.engine: wav2letter
 mode: command
@@ -19,3 +19,7 @@ talon talon: key(backspace left backspace o)
 #common entries and mild pw obfuscation
 enter email: "cjocharly@att.net"
 bitwarden code: "2773"
+
+#large block scrolling 
+upper: user.mouse_scroll_up(6)
+downer: user.mouse_scroll_down(6)
