@@ -1,4 +1,4 @@
-#extra system and engine specifications to assert override
+    #extra system and engine specifications to assert override
 speech.engine: wav2letter
 mode: sleep
 not mode: sleep
@@ -45,3 +45,11 @@ discord (return|mute):
     user.talon_mode()
     user.try_mute()
     user.switcher_focus(user.app_return)
+    
+#as above, but uses trails' custom command mode
+trails return:
+    user.talon_mode()
+    user.try_mute()
+    user.switcher_focus("The Legend of Heroes: Trails in the Sky")
+    mode.enable("user.trails_mode")
+    mode.disable("command")

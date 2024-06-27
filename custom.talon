@@ -27,25 +27,3 @@ taskbar menu <number>: key("win-alt-{number}")
 
 #easier app closer (needs to be a little tricky to use accidentally)
 older effort forest: key(alt-f4)
-
-#app-specific "go back to this and do something to talon" commands (for command mode, not while talon is asleep)
-#goes to discord, toggles mute, and turns off talon regardless of current focus
-discord unmute:
-    user.switcher_focus("Discord")
-    user.discord_mute()
-    speech.disable()
-
-#focuses and unmutes discord and goes back to final fantasy - this is a different switch than normal, going from 'muted and editing' to 'play and chat'
-(f i|final) return: 
-    user.switcher_focus("Discord")
-    user.discord_mute()
-    user.switcher_focus("FINAL FANTASY XIV")
-    speech.disable()
-
-#focus trails in the sky and then enter its custom mode (should fail at first step when trails isn't open)
-#also deactivates the mouse grade so that the grid can be more easily used during trails
-focus trails:
-    user.switcher_focus("The Legend of Heroes: Trails in the Sky")
-    mode.enable("user.trails_mode")
-    mode.disable("command")
-    user.flex_grid_deactivate()

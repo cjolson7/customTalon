@@ -1,6 +1,11 @@
+#movement and navigation commands
+
 mode: user.trails_mode
 app: The Legend of Heroes: Trails in the Sky
 -
+settings():
+    key_wait = 180
+
 #camera and minimap
 (camera|rotate) left: "z"
 (camera|rotate) right: "x"
@@ -35,4 +40,3 @@ long and winding path to bedtime:
     sleep(6000ms)
     user.wake_time_for_bracers()
     user.winding_path_back()
-

@@ -8,6 +8,7 @@ apps_to_return_to = {
    "loathing": "Shadows Over Loathing.exe",
    "firefox": "Firefox",
    "gremlin": "joystick_gremlin.exe",
+   "code": "Visual Studio Code"
 }
 context.lists["user.app_return"] = list(apps_to_return_to.keys()) 
 module.list("app_return", desc="List of apps to recognize in a 'return and turn on' command")

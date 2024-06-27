@@ -5,28 +5,9 @@ mode: user.trails_mode
 settings():
     key_wait = 180
 
-#manage custom command mode
-#go to another app (and back to command mode)
-focus <user.running_applications>:
-    user.switcher_focus(running_applications)
-    mode.disable("user.trails_mode")
-    mode.enable("command")
-#simply return to command mode
-command mode:
-    mode.disable("user.trails_mode")
-    mode.enable("command")
-#this should work despite redundancy because I will expect it to when I come back and make sure everything is correct. 
-focus trails:
-    user.switcher_focus("The Legend of Heroes: Trails in the Sky")
-    mode.enable("user.trails_mode")
-    mode.disable("command")   
-
-#custom command maker
-interact command maker <user.text>: user.interact_command_maker(user.text)
-.
 #basic control
 (interact|confirm|enter): key(space)
-(act|action) <user.arrow_keys>:
+act <user.arrow_keys>:
     user.variable_walk(arrow_keys, 0)
     key(space)
 (act|action) <user.arrow_keys> <number>:
@@ -69,41 +50,8 @@ tab memo: user.long_click_at_location(315, 185)
 tab Rolent: user.long_click_at_location(315, 345)
 tab (Bose|bows): user.long_click_at_location(315, 495)
 
-#menu
-status: user.click_and_act(416, 45)
-equip: user.click_and_act(586, 45)
-orbment: user.click_and_act(756, 45)
-items: user.click_and_act(936, 45)
-tactics: user.click_and_act(1116, 45)
-(option|options): user.click_and_act(1286, 45)
-files: user.click_and_act(1456, 45)
-equipment: 
-    key(escape)
-    sleep(200ms)
-    user.click_and_act(586, 45)
-inventory: 
-    key(escape)
-    sleep(200ms)
-    user.click_and_act(936, 45)
-healing items: 
-    key(escape)
-    sleep(200ms)
-    user.long_click_at_location(936, 45)
-    sleep(100ms)
-    user.long_click_at_location(891, 187)
-    key(s)
-
-#menu navigation by character
-use item: key(space:2)
-choose <user.trails_characters>: user.choose_character_from_menu(user.trails_characters)
-use item on <user.trails_characters>:
-    key(space:2)
-    sleep(200ms)
-    user.choose_character_from_menu(user.trails_characters)
-    key(space)
-
 #shopping 
-(f and open shop|open report|confirm sleep) : key(space s space)
+(open (shop|report)|confirm sleep) : key(space s space)
 (sell|purchase) item: 
     key(space:2)
     sleep(100ms)
@@ -130,31 +78,6 @@ choose run: mouse_move(1672, 620)
 [es] break three: "3"
 [es] break (for|four): "4"
 end combat: user.keep_going(5)
-
-#start up and game management
-load on startup: user.long_click_at_location(1635, 765)
-time to exit game: 
-    key(escape)
-    sleep(100ms)
-    user.long_click_at_location(1456, 45)
-    key(enter w space:2)
-save game: 
-    key(escape)
-    sleep(100ms)
-    user.long_click_at_location(1456, 45)
-    key(enter:2)
-save and back: 
-    key(enter w)
-    sleep(100ms)
-    key(enter)
-    key(escape:4)
-load game: 
-    key(escape)
-    sleep(100ms)
-    user.long_click_at_location(1456, 45)
-    key(enter)
-    key(s)
-    key(enter)
 
 #rewrites of basic commands
 touch: user.long_click(0, 300)
