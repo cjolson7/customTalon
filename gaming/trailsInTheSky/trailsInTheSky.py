@@ -23,11 +23,28 @@ class Actions:
         """create a click and act command based on the current mouse coordinates"""
         actions.user.command_writer(name, "user.click_and_act")
     
-    def choose_character_from_menu(name: str):
-        """give it a character name, parse their coordinates from the dictionary and click on them in the menu"""
-        coordinates = trails_character_list[name]["menu_location"]
+    def choose_list_item_from_menu(name: str, dictionary: dict, key: str):
+        """
+        Given a user-selected string, the dictionary to look in, and the key for the relevant nested information, parse and click on the coordinates.
+        """
+        coordinates = dictionary[name][key]
         actions.user.long_click_at_location(coordinates[0], coordinates[1])
         
+    def choose_character_from_menu(name: str):
+        """associate character name with the correct dictionary and key for coordinate parsing"""
+        actions.user.choose_list_item_from_menu(name, trails_character_list, "menu_location")
+        
+    def choose_equipment_from_menu(slot: str):
+        """associate equipment slot with the correct dictionary and key for coordinate parsing"""
+        actions.user.choose_list_item_from_menu(slot, trails_equipment_list, "menu_location")
+    
+    def use_item_on_character(name: str):
+        """from inventory, use selected item on character"""
+        actions.key("space:2")
+        actions.user.variable_wait(200)
+        actions.user.choose_character_from_menu(name)
+        actions.key("space")
+
     def winding_path_home():
         """walk home on the winding path"""
         actions.key("tab:down")
@@ -78,7 +95,6 @@ class Actions:
         actions.key("tab:up")
         actions.user.variable_wait(500)
 
-#games I want togo back to and turn Talon on
 trails_character_list = {
     "Estelle": {"menu_location": (200, 200)},
     "Joshua": {"menu_location": (200, 350)},
@@ -90,3 +106,17 @@ module.list("trails_characters", desc="List of party characters and trails in th
 @module.capture(rule=("{user.trails_characters}"))
 def trails_characters(m) -> str:
     return str(m) #return just the character name because the dictionary will be parsed in another python script anyway
+
+trails_equipment_list = {
+    "weapon": {"menu_location": (1370, 195)},
+    "armor": {"menu_location": (1370, 230)},
+    "boots": {"menu_location": (1370, 265)},
+    "one": {"menu_location": (1370, 300)},
+    "two": {"menu_location": (1370, 335)},
+}
+
+context.lists["user.trails_equipment"] = list(trails_equipment_list.keys()) 
+module.list("trails_equipment", desc="list of trails in the sky equipment in order for easy access") 
+@module.capture(rule=("{user.trails_equipment}"))
+def trails_equipment(m) -> str: 
+    return str(m)

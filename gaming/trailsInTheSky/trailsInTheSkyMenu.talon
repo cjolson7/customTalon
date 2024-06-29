@@ -32,8 +32,16 @@ healing items:
 #menu navigation by character
 use item: key(space:2)
 choose <user.trails_characters>: user.choose_character_from_menu(user.trails_characters)
-use item on <user.trails_characters>:
-    key(space:2)
-    sleep(200ms)
+loadout <user.trails_characters>:
     user.choose_character_from_menu(user.trails_characters)
     key(space)
+loadout <user.trails_characters> <user.trails_equipment>:
+    user.choose_character_from_menu(user.trails_characters)
+    key(space)
+    sleep(100ms)
+    user.choose_equipment_from_menu(user.trails_equipment)
+    key(space)
+use item on <user.trails_characters>: user.use_item_on_character(user.trails_characters)
+use item on <user.trails_characters> and <user.trails_characters>:
+    user.use_item_on_character(user.trails_characters_1)
+    user.use_item_on_character(user.trails_characters_2)

@@ -26,7 +26,7 @@ interact command maker <user.text>: user.interact_command_maker(user.text)
 
 #start up and game management
 load on startup: user.long_click_at_location(1635, 765)
-time to exit [the] game: 
+time to exit [the] [game]: 
     key(escape)
     sleep(100ms)
     user.long_click_at_location(1456, 45)
@@ -36,7 +36,7 @@ save game:
     sleep(100ms)
     user.long_click_at_location(1456, 45)
     key(enter:2)
-save and back: 
+confirm save: 
     key(enter w)
     sleep(100ms)
     key(enter)

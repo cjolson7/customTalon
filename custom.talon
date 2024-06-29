@@ -12,6 +12,7 @@ emote (<user.text>):
 windows: key(win)
 caps lock: key(capslock)
 save file: key(ctrl-s)
+interact: key(enter)
 
 #Window Control
 minimize [all]: key(win-m) 

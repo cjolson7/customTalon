@@ -11,7 +11,7 @@ class Actions:
     def custom_navigator(type: str, destination: str):
         """Auto navigates to a specific server, user, channel, or other discord location based on custom user input."""
         actions.user.discord_quick_switcher(type, destination)
-        actions.sleep("250ms")
+        actions.sleep("300ms")
         actions.key("enter")
 
 reactions_list = {
@@ -90,9 +90,10 @@ def discord_voice_channels(m) -> str:
     return (voice_list[str(m)])
 
 generic_list = {
-   "wind spirit": "wind spirit support",
-   "skeleton organizing": "skeleton organizing",
-   "tiny server": "generic server name"
+    "wind spirit": "wind spirit support",
+    "skeleton organizing": "skeleton organizing",
+    "tiny server": "generic server name",
+    "space bug": "space bug squadron",
 }
 context.lists["user.discord_generic_destinations"] = list(generic_list.keys()) 
 module.list("discord_generic_destinations", desc="Common names for discord users")

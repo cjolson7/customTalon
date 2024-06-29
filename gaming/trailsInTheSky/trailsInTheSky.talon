@@ -24,8 +24,9 @@ cook sitdown:
     sleep(100ms)
     key(w)
     key(space)
-    sleep(3500ms)
+    sleep(5000ms)
     key(space)
+    key(escape)
 cook that: 
     key(space)
     sleep(100ms)
@@ -57,6 +58,7 @@ confirm purchase:
     sleep(100ms)
     key(w)
     key(space:2)
+confirm trade: key(space w space:2 escape)
 
 #combat
 (murder|punch it):
@@ -72,4 +74,4 @@ choose run: mouse_move(1672, 620)
 [es] break (to|two): "2"
 [es] break three: "3"
 [es] break (for|four): "4"
-end combat: user.keep_going(5)
+end combat: user.keep_going(6)
