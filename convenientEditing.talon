@@ -8,7 +8,7 @@ function writer <user.function_writer>:
    key(left)  
 
 #fix common mishearings
-wait wait: key(left backspace:2 left backspace a right:3)
+wait wait: key(left backspace:2 left backspace a right:2)
 talon talon: key(backspace left backspace o) 
 
 #overwrite paste to have a small wait after so that it chains better

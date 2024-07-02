@@ -11,7 +11,7 @@ class Actions:
     def custom_navigator(type: str, destination: str):
         """Auto navigates to a specific server, user, channel, or other discord location based on custom user input."""
         actions.user.discord_quick_switcher(type, destination)
-        actions.sleep("300ms")
+        actions.sleep("400ms")
         actions.key("enter")
 
 reactions_list = {

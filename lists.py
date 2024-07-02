@@ -24,6 +24,7 @@ syntax_list = {
     "def": "def",
     "integer": "int",
     "string": "str",
+    "variable wait": "user.variable_wait(100)" 
 }
 context.lists["user.coding_syntax"] = list(syntax_list.keys()) 
 module.list("coding_syntax", desc="List of coding syntax to be recognized while writing code")
