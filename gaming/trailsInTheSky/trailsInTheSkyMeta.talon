@@ -24,6 +24,9 @@ focus trails:
 #custom command maker
 interact command maker <user.text>: user.interact_command_maker(user.text)
 
+#steam overlay 
+open steam overlay: key(shift-tab) 
+
 #start up and game management
 load on startup: user.long_click_at_location(1635, 765)
 time to exit [the] [game]: 

@@ -6,13 +6,17 @@ settings():
     key_wait = 180
     
 #menu
-status: user.click_and_act(416, 45)
-equip: user.click_and_act(586, 45)
-orbment: user.click_and_act(756, 45)
-items: user.click_and_act(936, 45)
-tactics: user.click_and_act(1116, 45)
-(option|options): user.click_and_act(1286, 45)
-files: user.click_and_act(1456, 45)
+open menu:
+    key(escape)
+    user.variable_wait(100)
+menu <user.trails_menu>:
+    user.choose_menu_tab(user.trails_menu)
+    key(space)
+open menu <user.trails_menu>:
+    key(escape)
+    user.variable_wait(100)
+    user.choose_menu_tab(user.trails_menu)
+    key(space)
 equipment: 
     key(escape)
     sleep(200ms)
@@ -31,7 +35,7 @@ healing items:
 
 #menu navigation by character
 use item: key(space:2)
-choose <user.trails_characters>: user.choose_character_from_menu(user.trails_characters)
+name <user.trails_characters>: user.choose_character_from_menu(user.trails_characters)
 loadout <user.trails_characters>:
     user.choose_character_from_menu(user.trails_characters)
     key(space)
@@ -45,3 +49,13 @@ use item on <user.trails_characters>: user.use_item_on_character(user.trails_cha
 use item on <user.trails_characters> and <user.trails_characters>:
     user.use_item_on_character(user.trails_characters_1)
     user.use_item_on_character(user.trails_characters_2)
+
+#orbment
+slot up [<number>]:
+    key(escape)
+    user.key_repeat("whave', number or 1)
+    key(space)
+slot down [<number>]:
+    key(escape)
+    user.key_repeat("s', number or 1)
+    key(space)

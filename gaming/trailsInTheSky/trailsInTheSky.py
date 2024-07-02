@@ -12,7 +12,7 @@ class Actions:
         if number > 30: number = 30
         for i in range(number):
             actions.key("space")
-            actions.user.variable_wait(500)
+            actions.user.variable_wait(700)
             
     def click_and_act(x: int, y: int):
         """click at the coordinates and then do an interact action"""
@@ -33,10 +33,14 @@ class Actions:
     def choose_character_from_menu(name: str):
         """associate character name with the correct dictionary and key for coordinate parsing"""
         actions.user.choose_list_item_from_menu(name, trails_character_list, "menu_location")
-        
+            
     def choose_equipment_from_menu(slot: str):
         """associate equipment slot with the correct dictionary and key for coordinate parsing"""
         actions.user.choose_list_item_from_menu(slot, trails_equipment_list, "menu_location")
+        
+    def choose_menu_tab(slot: str):
+        """associate menu tab with the correct dictionary and key for coordinate parsing"""
+        actions.user.choose_list_item_from_menu(slot, trails_menu_list, "menu_location")
     
     def use_item_on_character(name: str):
         """from inventory, use selected item on character"""
@@ -102,7 +106,7 @@ trails_character_list = {
     "Olivier": {"menu_location": (200, 650)},
 }
 context.lists["user.trails_characters"] = list(trails_character_list.keys()) 
-module.list("trails_characters", desc="List of party characters and trails in the sky linked to information dictionaries") 
+module.list("trails_characters", desc="List of party characters in trails in the sky linked to information dictionaries") 
 @module.capture(rule=("{user.trails_characters}"))
 def trails_characters(m) -> str:
     return str(m) #return just the character name because the dictionary will be parsed in another python script anyway
@@ -116,7 +120,23 @@ trails_equipment_list = {
 }
 
 context.lists["user.trails_equipment"] = list(trails_equipment_list.keys()) 
-module.list("trails_equipment", desc="list of trails in the sky equipment in order for easy access") 
+module.list("trails_equipment", desc="list of trails in the sky equipment slots") 
 @module.capture(rule=("{user.trails_equipment}"))
 def trails_equipment(m) -> str: 
+    return str(m)
+
+trails_menu_list = {
+    "status": {"menu_location": (416, 45)},
+    "equip": {"menu_location": (586, 45)},
+    "orbment": {"menu_location": (756, 45)},
+    "items": {"menu_location": (936, 45)},
+    "tactics": {"menu_location": (1116, 45)},
+    "options": {"menu_location": (1370, 45)},
+    "files": {"menu_location": (1456, 45)},
+}
+
+context.lists["user.trails_menu"] = list(trails_menu_list.keys()) 
+module.list("trails_menu", desc="list of trails in the sky menu") 
+@module.capture(rule=("{user.trails_menu}"))
+def trails_menu(m) -> str: 
     return str(m)
